@@ -27,8 +27,11 @@ const option2 = document.querySelector('.op-2');
 const option3 = document.querySelector('.op-3');
 const nextButton = document.querySelector('#next-button');
 const prevButton = document.querySelector('#prev-button');
+const optionButtons = [option1, option2, option3];
+const selectAnswer = null;
 
 let currentQesIndex = 0;
+
 
 const showQuestion = (index) => {
   const question = questionsData[index];
@@ -50,3 +53,13 @@ prevButton.addEventListener('click', () => {
   currentQesIndex--;
   showQuestion(currentQesIndex);
 });
+
+//Access to the selected answer
+optionButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+      button.focus();
+
+      selectAnswer = button.textContent;
+  });
+});
+// console.log(selectAnswer);

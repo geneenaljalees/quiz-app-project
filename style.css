@@ -112,3 +112,7 @@ h1 {
   font-size: 1.1rem;
 }
 
+button:focus {
+  outline: 1px solid #4caf50;
+  outline-offset: 2px;
+}
