@@ -19,6 +19,11 @@ const questionsData = [
     options: ['a', 'b', 'c'],
     correctAnswer: 'a',
   },
+  {
+    title: 'question 5',
+    options: ['1', '2', '3'],
+    correctAnswer: '3',
+  },
 ];
 
 const questionTitle = document.querySelector('.ques-title');
@@ -29,6 +34,8 @@ const nextButton = document.querySelector('#next-button');
 const prevButton = document.querySelector('#prev-button');
 const optionButtons = [option1, option2, option3];
 const submitButton = document.querySelector('#submit-button');
+const quizResult = document.querySelector('.quiz-result');
+const scoreEl = document.querySelector('.score');
 
 let currentQesIndex = 0;
 let selectAnswer = null;
@@ -75,5 +82,10 @@ document.querySelector('#submit-button').addEventListener('click', () => {
   } else {
     alert(`Wrong Answer! Correct answer is: ${correctAnswer}`);
   }
+
+   if (currentQesIndex === questionsData.length - 1) {
+      quizResult.style.display = 'block';
+     scoreEl.textContent = score;
+   }
  
 });
