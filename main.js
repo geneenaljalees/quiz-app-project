@@ -25,6 +25,8 @@ const questionTitle = document.querySelector('.ques-title');
 const option1 = document.querySelector('.op-1');
 const option2 = document.querySelector('.op-2');
 const option3 = document.querySelector('.op-3');
+const nextButton = document.querySelector('#next-button');
+const prevButton = document.querySelector('#prev-button');
 
 let currentQesIndex = 0;
 
@@ -36,6 +38,15 @@ const showQuestion = (index) => {
   option3.textContent = question.options[2];
 };
 
-//Show first question
+//Show first question in first render
 showQuestion(currentQesIndex);
 
+//Show questions based on next and previous buttons.
+nextButton.addEventListener('click', () => {
+  currentQesIndex++;
+  showQuestion(currentQesIndex);
+});
+prevButton.addEventListener('click', () => {
+  currentQesIndex--;
+  showQuestion(currentQesIndex);
+});
