@@ -28,10 +28,11 @@ const option3 = document.querySelector('.op-3');
 const nextButton = document.querySelector('#next-button');
 const prevButton = document.querySelector('#prev-button');
 const optionButtons = [option1, option2, option3];
-const selectAnswer = null;
+const submitButton = document.querySelector('#submit-button');
 
 let currentQesIndex = 0;
-
+let selectAnswer = null;
+let score = 0;
 
 const showQuestion = (index) => {
   const question = questionsData[index];
@@ -63,3 +64,16 @@ optionButtons.forEach((button) => {
   });
 });
 // console.log(selectAnswer);
+
+
+document.querySelector('#submit-button').addEventListener('click', () => { 
+  const correctAnswer = questionsData[currentQesIndex].correctAnswer;
+  if (selectAnswer === correctAnswer) {
+    alert('Correct Answer!');
+    score++;
+
+  } else {
+    alert(`Wrong Answer! Correct answer is: ${correctAnswer}`);
+  }
+ 
+});
